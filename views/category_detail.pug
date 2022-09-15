@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+    a.create-btn(href="/inventory/item/create") Create Item 
+    div.grid-container
+        each item in category_items 
+            div.card
+                a(href=item.url) 
+                    h3 Item: #{item.name}
+                    p.card-details Brand: #{item.brand.name}
+                    p.card-details Gender: #{item.gender}#{`'s`}
+                    p.card-details Price: $#{item.price}

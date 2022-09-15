@@ -1,0 +1,24 @@
+extends layout 
+
+block content 
+    form.c-form(method='POST' action='')
+        div.form-group
+            label(for="item") Item:
+            select#item.form-control(type='select' placeholder='Select item' name="item" required='true') 
+                - items.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for item in items
+                    if iteminstance
+                        option(
+                            value=item._id
+                            selected=(
+                                item._id.toString()==iteminstance.item._id
+                                || item._id.toString()==iteminstance.item
+                            ) ? 'selected' : false
+                        ) #{item.name}
+                    else
+                        option(value=item._id) #{item.name}
+        div.form-group
+            label(for="size") Size: 
+            input.form-control(type="text" id='size' name='size' required='true' min='1' placeholder='Size of item' value=(iteminstance === undefined ? '' : iteminstance.size))
+        button.btn.create-btn(type='submit') Submit
+        

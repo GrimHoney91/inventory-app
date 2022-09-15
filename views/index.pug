@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.grid-container
+    div.card
+      a(href="/inventory/items") 
+        span.count=data.item_count
+        h4='Total Items'
+        p.view='View Items'
+    div.card
+      a(href="/inventory/categories") 
+        span.count=data.category_count 
+        h4='Total Categories'
+        p.view='View Categories'
+    div.card
+      a(href="/inventory/brands") 
+        span.count=data.brand_count 
+        h4='Total Brands'
+        p.view='View Brands'

@@ -1,0 +1,11 @@
+extends layout 
+
+block content 
+    form.c-form(method='POST' action='')
+        div.form-group
+            label(for="name") Name:
+            input#name.form-control(type="text" placeholder='Brand name' required='true' max='30' name='name' value=(brand === undefined ? '' : brand.name)) 
+        div.form-group
+            label(for="description") Description:
+            textarea#description.form-control(type='text' placeholder='Brand description' max=500 name='description') #{brand === undefined ? null : brand.description}
+        button.btn.create-btn(type='submit') Submit

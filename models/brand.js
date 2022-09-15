@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const BrandSchema = new Schema({
     name: {type: String, required: true, maxLength: 30},
-    description: {type: String, maxLength: 300}
+    description: {type: String, maxLength: 500}
 });
 
 BrandSchema

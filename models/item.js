@@ -9,7 +9,6 @@ const ItemSchema = new Schema({
     gender: {type: String, enum: ['men', 'women'], required: true},
     category: {type: Schema.Types.ObjectId, ref: 'Category', required: true},
     price: {type: Number, min: 0, required: true},
-    stock: {type: Number, min: 0, required: true}
 });
 
 ItemSchema

@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+    a.create-btn(href="/inventory/category/create") Create Category 
+    div.grid-container
+        each category in category_list 
+            div.card
+                a(href=category.url) 
+                    h3 #{category.name}
+                div.category-options
+                    a(href=category.url + '/update') Update
+                    a(href=category.url + '/delete') Delete

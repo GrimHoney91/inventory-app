@@ -1,0 +1,34 @@
+extends layout
+
+block content
+    div.item-container
+        img.default(src="/images/default.png", alt="default stock photo")
+        div.details-container
+            div.detail-row
+                p.item-details #[strong Item:] #{item.name}
+            div.detail-row
+                if item.brand.description==null
+                    p.item-details #[strong Brand:] #{item.brand.name}
+                else
+                    p.item-details #[strong Brand:] #{item.brand.name} - #{item.brand.description}
+            div.detail-row
+                p.item-details #[strong Description:] #{item.description}
+            div.detail-row
+                p.item-details #[strong Gender:] #{item.gender}'s
+            div.detail-row
+                p.item-details #[strong Category:] #{item.category.name}
+            div.detail-row
+                p.item-details #[strong Price:] $#{item.price}
+    if item_instances.length
+        div.instances-container
+            p.stock #[strong Stock:] #{item_instances.length}
+            p.d-stock Delete the following instances in order to delete this item!
+            each instance in item_instances
+                div.instance-row
+                    p.instance-detail.instance-link #[strong Item #:] #{instance._id}
+                    p.instance-detail #[strong Size:] #{instance.size}
+    else 
+        form.d-form(method='POST' action='')
+            input#itemid.form-control(type='hidden' name='itemid' required='true' value=item._id)
+            p.d-msg Are you sure you want to delete this item? 
+            button.d-btn.btn(type='submit') Delete

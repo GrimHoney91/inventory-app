@@ -7,4 +7,10 @@ const ItemInstanceSchema = new Schema({
     size: {type: String, required: true}
 });
 
+ItemInstanceSchema
+.virtual('url')
+.get(function() {
+    return `/inventory/iteminstance/${this._id}`;
+});
+
 module.exports = mongoose.model('ItemInstance', ItemInstanceSchema);

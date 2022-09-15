@@ -1,0 +1,12 @@
+extends layout
+
+block content 
+    a.create-btn(href="/inventory/brand/create") Create Brand 
+    div.grid-container
+        each brand in brand_list  
+            div.card
+                a(href=brand.url) 
+                    h3 #{brand.name}
+                div.category-options
+                    a(href=brand.url + '/update') Update
+                    a(href=brand.url + '/delete') Delete

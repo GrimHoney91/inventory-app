@@ -1,8 +1,291 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0rem;
+  padding: 0rem;
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background-color: grey;
+  padding: 2rem;
+}
+.mc {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 2.5rem;
+  padding: 1rem;
+  border-radius: 1.5rem;
+  width: fit-content;
+  cursor: pointer;
+  background-color: rgb(43, 42, 42);
+}
+.mc:hover {
+  background-color: black;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.main-content {
+  flex: 1;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+h1 {
+  font-size: 3rem;
+  color: black;
+}
+h2 {
+  font-size: 2rem;
+  color: rgba(0, 0, 0, 0.6);
+  font-weight: lighter;
+  padding-top: 1rem;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 2rem;
+  gap: 2rem;
+}
+.card {
+  padding: 2rem;
+  background-color: rgba(220, 220, 220, 0.615);
+  text-align: center;
+  border-radius: 1.5rem;
+  box-shadow: 0px 2px 2px grey;
+  cursor: pointer;
+}
+.count {
+  font-size: 2.5rem;
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+h4 {
+  font-size: 2rem;
+}
 a {
-  color: #00B7FF;
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+.view {
+  font-size: 1.5rem;
+}
+footer {
+  background-color: grey;
+  padding: 1.5rem;
+}
+h5 {
+  font-size: 2rem;
+  color: white;
+  text-align: center;
+}
+h3 {
+  font-size: 1.75rem;
+}
+.card-details{
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+.item-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+}
+.default {
+  max-width: 25vw;
+}
+.details-container {
+  background-color: gainsboro;
+  flex: 1;
+  margin-left: 2rem;
+}
+.detail-row {
+  padding: 2rem;
+}
+.detail-row:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+.details-container strong, .item-details {
+  font-size: 2rem;
+}
+.options-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  padding: 0rem 2rem;
+}
+.options-container a, .create-btn, .btn {
+  padding: 1rem 2em;
+  border-radius: 0.5rem;
+  font-size: 1.75rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  width: fit-content;
+  cursor: pointer;
+}
+.options-container a:first-child {
+  margin-right: 2rem;
+  background-color: dodgerblue;
+}
+.options-container a:last-child {
+  background-color: tomato;
+}
+.instances-container {
+  min-height: 2rem;
+  padding: 2rem;
+}
+.stock, .stock strong {
+  font-size: 2.5rem;
+}
+.instance-row {
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2rem;
+}
+.instance-link {
+  color: dodgerblue;
+}
+strong {
+  color: black;
+}
+.instance-row * {
+  font-size: 2rem;
+}
+.instance-row:not(:last-child) {
+  border-bottom: 1px solid grey;
+}
+.instance-detail {
+  padding-right: 2rem;
+}
+.create-btn {
+  background-color: black;
+  color: white;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.c-form {
+  background-color: gainsboro;
+  padding: 4rem;
+  margin: 2rem auto;
+}
+.form-group {
+  padding-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+label, .form-control, option {
+  font-size: 2rem;
+}
+input, textarea {
+  font-family: 'Times New Roman', Times, serif;
+}
+textarea {
+  resize: none;
+  min-height: 20vh;
+}
+.form-control {
+  padding: 7px;
+}
+label {
+  padding-bottom: 0.5rem;
+}
+.radio-label {
+  padding-left: 0.5rem;
+  padding-bottom: 0rem;
+}
+.btn {
+  display: block;
+  font-size: 1.5rem;
+  margin-left: auto;
+  border: none;
+}
+.create-btn {
+  background-color: black;
+  color: white;
+}
+.d-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+}
+.d-stock, .d-items {
+  color: red;
+  font-size: 2.5rem;
+  padding-bottom: 1rem;
+}
+.d-msg {
+  color: red;
+  font-size: 2.5rem;
+  padding-right: 2rem;
+  display: block;
+}
+.d-btn {
+  background-color: red;
+  font-weight: bold;
+  color: white;
+}
+
+.category-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 1rem;
+}
+.category-options a {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  letter-spacing: 0.05rem;
+  width: fit-content;
+  cursor: pointer;
+}
+.category-options a:first-child {
+  background-color: dodgerblue;
+  margin-right: 3rem;
+}
+.category-options a:last-child {
+  background-color: tomato;
+}
+.d-items {
+  padding-left: 2rem;
+}
+.instance-btn-container {
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+  margin-right: 2rem;
+}
+.ui {
+  margin-left: 0rem;
+  margin-right: 2rem;
+  background-color: dodgerblue;
+  color: white;
+}
+.instance-top {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2rem;
+  align-items: center;
+}
+.ic {
+  display: block;
+  margin-left: 8rem;
+  margin-right: 0rem;
 }

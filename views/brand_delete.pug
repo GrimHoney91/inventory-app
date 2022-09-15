@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    if brand_items.length
+        p.d-items Delete the following items in order to delete this brand!
+        div.grid-container
+            each item in brand_items 
+                div.card
+                    a(href=item.url) 
+                        h3 Item: #{item.name}
+                        p.card-details Brand: #{item.brand.name}
+                        p.card-details Gender: #{item.gender}#{`'s`}
+                        p.card-details Price: $#{item.price}
+    else 
+        form.d-form(method='POST' action='')
+            input#brandid.form-control(type='hidden' name='brandid' required='true' value=brand._id)
+            p.d-msg Are you sure you want to delete this brand? 
+            button.d-btn.btn(type='submit') Delete

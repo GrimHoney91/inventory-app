@@ -1,0 +1,41 @@
+extends layout
+
+block content
+    div.item-container
+        img.default(src="/images/default.png", alt="default stock photo")
+        div.details-container
+            div.detail-row
+                p.item-details #[strong Item:] #{item.name}
+            div.detail-row
+                if item.brand.description==null
+                    p.item-details #[strong Brand:] #{item.brand.name}
+                else
+                    p.item-details #[strong Brand:] #{item.brand.name} - #{item.brand.description}
+            div.detail-row
+                p.item-details #[strong Description:] #{item.description}
+            div.detail-row
+                p.item-details #[strong Gender:] #{item.gender}'s
+            div.detail-row
+                p.item-details #[strong Category:] #{item.category.name}
+            div.detail-row
+                p.item-details #[strong Price:] $#{item.price}
+    if trash !== undefined
+        div
+    else 
+        div.options-container
+            a(href=item.url + '/update') Update Item 
+            a(href=item.url + '/delete') Delete Item 
+    div.instances-container
+        div.instance-top
+            p.stock #[strong Stock:] #{instance_count}
+            a.create-btn.ic(href="/inventory/iteminstance/create") Create Instance
+        each instance in item_instances
+            div.instance-row
+                p.instance-detail.instance-link(href=instance.url) #[strong Item #:] #{instance._id}
+                p.instance-detail #[strong Size:] #{instance.size}
+                div.instance-btn-container
+                    a.btn.ui(href=instance.url + '/update') Update
+                    form.instance-form(method='POST' action='')
+                        input#instanceid.form-control(type='hidden' name='instanceid' required='true' value=instance._id)
+                        input#itemurl.form-control(type='hidden' name='itemurl' required='true' value=item.url)
+                        button.d-btn.btn(type='submit') Delete

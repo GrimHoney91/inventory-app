@@ -1,0 +1,58 @@
+extends layout 
+
+block content
+    form.c-form(method="POST" action='')
+        div.form-group
+            label(for="name") Name:
+            input#name.form-control(type="text" placeholder='Name of item' name='name' required='true' value=(item === undefined ? '' : item.name))  
+        div.form-group
+            label(for="brand") Brand:
+            select#brand.form-control(type='select' placeholder='Select brand' name="brand" required='true') 
+                - brands.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for brand in brands
+                    if item
+                        option(
+                            value=brand._id
+                            selected=(
+                                brand._id.toString()==item.brand._id
+                                || brand._id.toString()==item.brand
+                            ) ? 'selected' : false
+                        ) #{brand.name}
+                    else
+                        option(value=brand._id) #{brand.name}
+        div.form-group
+            label(for="description") Description:
+            textarea#description.form-control(type='textarea' placeholder='Description' name="description" required='true') #{item == undefined ? null : item.description}
+        div.form-group
+            label Gender:
+            div 
+                div(style='display: inline; padding-right: 10px;')
+                    input.radio-input(type='radio' name='gender' id='men' value='men' checked)
+                    label.radio-label(for="men") Men 
+                div(style='display: inline; padding-right: 10px;')
+                    input.radio-input(type='radio' name='gender' id='women' value='women')
+                    label.radio-label(for="women") Women 
+        div.form-group
+            label(for="category") Category:
+            select#category.form-control(type='select' placeholder='Select category' name="category" required='true') 
+                - categories.sort(function(a, b) {let textA = a.name.toUpperCase(); let textB = b.name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                for category in categories
+                    if item
+                        option(
+                            value=category._id
+                            selected=(
+                                category._id.toString()==item.category._id
+                                || category._id.toString()==item.category
+                            ) ? 'selected' : false
+                        ) #{category.name}
+                    else
+                        option(value=category._id) #{category.name}
+        div.form-group
+            label(for="price") Price:
+            input#price.form-control(type="number", name="price" min='0' value=(item == undefined ? '' : item.price) step='0.01' required='true') 
+        button.btn.create-btn(type='submit') Submit
+    
+    if errors 
+        ul
+            for error in errors 
+                li!=error.msg
