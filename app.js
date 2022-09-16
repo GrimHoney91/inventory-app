@@ -10,6 +10,9 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const inventoryRouter = require('./routes/inventory');
 
+const compression = require('compression');
+const helmet = require('helmet');
+
 var app = express();
 
 const mongoose = require('mongoose');
@@ -26,6 +29,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(helmet());
+app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
