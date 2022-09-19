@@ -1,4 +1,3 @@
-// mongodb+srv://grimhoney:linkStart91@cluster-1.aoqnihm.mongodb.net/inventory?retryWrites=true&w=majority
 const dotenv = require('dotenv');
 dotenv.config();
 var createError = require('http-errors');
